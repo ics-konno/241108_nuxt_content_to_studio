@@ -1,16 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { fetchContentNavigation } from "#imports";
+
+const { data: navigation } = await useAsyncData("navigation", () =>
+  fetchContentNavigation(),
+);
+</script>
 
 <template>
-  <ContentNavigation>
-    <template #default="{ navigation }">
-      <ul>
-        <li v-for="link of navigation" :key="link._path">
-          <NuxtLink :to="link._path" class="link">{{ link.title }}</NuxtLink>
-        </li>
-      </ul>
-    </template>
-    <template #empty />
-  </ContentNavigation>
+  <ul>
+    <li v-for="link of navigation" :key="link._path">
+      <NuxtLink :to="link._path" class="link">{{ link.title }}</NuxtLink>
+    </li>
+  </ul>
 </template>
 
 <style scoped>
