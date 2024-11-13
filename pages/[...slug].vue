@@ -4,8 +4,4 @@
   </main>
 </template>
 
-<style scoped>
-main {
-  padding: 16px;
-}
-</style>
+<style></style>

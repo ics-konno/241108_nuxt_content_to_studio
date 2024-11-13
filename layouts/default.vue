@@ -1,10 +1,17 @@
+<script setup lang="ts"></script>
 <template>
-  <div>
-    <HeaderNav />
+  <div class="content">
+    <header>
+      <HeaderNav />
+    </header>
     <slot />
   </div>
 </template>
 
-<style scoped></style>
-<script setup lang="ts">
-</script>
+<style scoped>
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+</style>

@@ -8,5 +8,11 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2024-11-05",
-  css: ["normalize.css/normalize.css"],
+  css: ["normalize.css/normalize.css", "/assets/styles.css"],
+
+  content: {
+    experimental: {
+      search: true,
+    },
+  },
 });

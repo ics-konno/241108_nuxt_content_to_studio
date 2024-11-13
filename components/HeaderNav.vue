@@ -14,6 +14,7 @@ ul {
   display: flex;
   gap: 1rem;
   font-size: 1.25rem;
+  padding: 0;
 }
 
 .link {
