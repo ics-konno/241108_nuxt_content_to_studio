@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import type { QueryBuilderParams } from "@nuxt/content";
-const query: QueryBuilderParams = {
-  sort: [{ date: -1 }],
-};
+const query = queryContent("blog").sort([{ date: -1 }]);
+const { data } = await useAsyncData("blog", () => query.find());
 </script>
 
 <template>
   <main>
-    <ArticleList :query="query" />
+    <ArticleList :list="data" />
   </main>
 </template>
 
