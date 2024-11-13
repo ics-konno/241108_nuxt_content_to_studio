@@ -4,7 +4,7 @@ const route = useRoute();
 const query: QueryBuilderParams = queryContent("blog")
   .where({
     tag: {
-      $contains: route.params.tag ?? [],
+      $contains: route.params.tag,
     },
   })
   .sort([{ date: -1 }]);
