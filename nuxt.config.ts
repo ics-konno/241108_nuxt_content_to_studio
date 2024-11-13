@@ -25,10 +25,7 @@ export default defineNuxtConfig({
       },
     },
   },
-
   nitro: {
-    prerender: {
-      failOnError: false,
-    },
+    preset: "node-server",
   },
 });
