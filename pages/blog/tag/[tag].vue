@@ -4,11 +4,11 @@ const route = useRoute();
 const query: QueryBuilderParams = queryContent("blog")
   .where({
     tag: {
-      $contains: route.params.tag,
+      $contains: route.params.tag ?? [],
     },
   })
   .sort([{ date: -1 }]);
-const { data } = await useAsyncData("blog", () => query.find());
+const { data } = await useAsyncData("tag", () => query.find());
 </script>
 
 <template>
