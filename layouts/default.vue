@@ -1,10 +1,10 @@
-<script setup lang="ts"></script>
-
 <template>
   <div>
-    <Navigation />
+    <HeaderNav />
     <slot />
   </div>
 </template>
 
 <style scoped></style>
+<script setup lang="ts">
+</script>

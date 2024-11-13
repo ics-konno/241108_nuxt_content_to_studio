@@ -10,4 +10,8 @@
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  padding: 16px;
+}
+</style>
