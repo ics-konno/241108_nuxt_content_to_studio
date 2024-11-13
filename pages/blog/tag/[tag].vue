@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { QueryBuilderParams } from "@nuxt/content";
-import { queryContent } from "#imports";
 const route = useRoute();
 const query: QueryBuilderParams = queryContent("blog")
   .where({
