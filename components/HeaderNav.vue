@@ -9,7 +9,6 @@
         </li>
       </ul>
     </template>
-    <template #empty />
   </ContentNavigation>
 </template>
 

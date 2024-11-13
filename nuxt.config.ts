@@ -25,12 +25,4 @@ export default defineNuxtConfig({
       },
     },
   },
-  nitro: {
-    preset: "node-server",
-    debug: true,
-    prerender: {
-      crawlLinks: true,
-      concurrency: 1,
-    },
-  },
 });
