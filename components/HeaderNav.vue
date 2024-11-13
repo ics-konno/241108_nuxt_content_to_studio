@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { fetchContentNavigation } from "#imports";
-
 const { data: navigation } = await useAsyncData("navigation", () =>
   fetchContentNavigation(),
 );
