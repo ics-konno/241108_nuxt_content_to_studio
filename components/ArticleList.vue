@@ -6,14 +6,18 @@ defineProps<{
 </script>
 
 <template>
-  <ContentList v-slot="{ list }" :query="query" path="/blog">
-    <TagLinks />
-    <ul class="list">
-      <li v-for="article in list" :key="article._path">
-        <NuxtLink :to="article._path">{{ article.title }}</NuxtLink>
-        <span class="date">{{ parseDate(article.date) }}</span>
-      </li>
-    </ul>
+  <TagLinks />
+  <ContentList :query="query" path="/blog">
+    <template #default="{ list }">
+      <ul class="list">
+        <li v-for="article in list" :key="article._path">
+          <NuxtLink :to="article._path">{{ article.title }}</NuxtLink>
+          <span class="date">{{ parseDate(article.date) }}</span>
+        </li>
+      </ul>
+    </template>
+    <template #not-found> <h1>記事が見つかりませんでした</h1></template>
+    <template #emply> <h1>記事が見つかりませんでした</h1></template>
   </ContentList>
 </template>
 
