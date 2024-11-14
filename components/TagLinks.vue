@@ -2,12 +2,13 @@
 const { data } = await useAsyncData("tag", () =>
   queryContent("blog").where({ $exists: "tag" }).find(),
 );
-const tags = computed(() =>
-  data.value
+const tags = computed(() => {
+  const arr = data.value
     .map((article) => article.tag)
     .flat()
-    .filter((tag) => !!tag),
-);
+    .filter((tag) => !!tag);
+  return new Set(arr);
+});
 </script>
 
 <template>
@@ -25,8 +26,8 @@ ul {
   list-style: none;
   gap: 12px;
   li {
-    border: 1px solid #333;
-    border-radius: 12px;
+    border: 1px solid #000;
+    border-radius: 8px;
     transition: 0.2s;
     a {
       display: inline-block;
