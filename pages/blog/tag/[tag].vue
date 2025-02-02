@@ -1,32 +1,31 @@
 <script setup lang="ts">
 import { parseDate } from "~/utils/parseDate";
-import type { QueryBuilderParams } from "@nuxt/content";
 
 const route = useRoute();
-const query: QueryBuilderParams = {
-  where: {
-    tag: {
-      $contains: route.params.tag,
-    },
-  },
-  sort: { date: -1 },
-};
+const { data } = await useAsyncData(route.path, () =>
+  queryCollection("blog").where("tag", "IS NOT NULL").order("id", "DESC").all(),
+);
+
+const current = computed(() => {
+  if (typeof route.params.tag !== "string") return data.value;
+  return data.value?.filter((article) =>
+    article.tag.includes(route.params.tag as string),
+  );
+});
 </script>
 
 <template>
   <main>
     <TagLinks />
-    <ContentList v-slot="{ list }" :query="query" path="/blog">
-      <ul class="list">
-        <li v-for="article in list" :key="article._path" class="list_item">
-          <NuxtLink :to="article._path">{{ article.title }}</NuxtLink>
-          <span class="date">{{ parseDate(article.date) }}</span>
-          <div v-for="tag in article.tag" :key="tag" class="list_item_tag">
-            {{ tag }}
-          </div>
-        </li>
-      </ul>
-    </ContentList>
+    <ul v-if="current" class="list">
+      <li v-for="article in current" :key="article.path" class="list_item">
+        <NuxtLink :to="article.path">{{ article.title }}</NuxtLink>
+        <span class="date">{{ parseDate(article.date) }}</span>
+        <div v-for="tag in article.tag" :key="tag" class="list_item_tag">
+          {{ tag }}
+        </div>
+      </li>
+    </ul>
   </main>
 </template>
 
