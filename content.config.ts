@@ -7,7 +7,7 @@ export default defineContentConfig({
       type: "page",
     }),
     blog: defineCollection({
-      source: { include: "2.blog/**/*.md", prefix: "/blog" },
+      source: "**/*.md",
       type: "page",
       schema: z.object({
         draft: z.boolean(),
