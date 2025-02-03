@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { parseDate } from "~/utils/parseDate";
 
-const { data: all } = useAsyncData("all", () => queryCollection("docs").all());
-
 const { data } = await useAsyncData("blog", () =>
   queryCollection("blog").order("id", "DESC").all(),
 );
@@ -11,11 +9,6 @@ const { data } = await useAsyncData("blog", () =>
 <template>
   <main>
     <TagLinks />
-    <ul>
-      <li v-for="item in all" :key="item.id">
-        <NuxtLink :to="item.path">{{ item.title }}</NuxtLink>
-      </li>
-    </ul>
     <ul v-if="data" class="list">
       <li v-for="article in data" :key="article.path" class="list_item">
         <NuxtLink :to="article.path">{{ article.title }}</NuxtLink>
