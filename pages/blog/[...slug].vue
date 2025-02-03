@@ -11,6 +11,7 @@ const { data } = await useAsyncData(route.path, () =>
     <div>
       <NuxtLink class="back" to="/blog">←もどる</NuxtLink>
     </div>
+    {{ route.path }}
     <article v-if="data">
       {{ data.tag }}
       <h1 class="title">{{ data.title }}</h1>
