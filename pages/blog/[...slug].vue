@@ -12,6 +12,7 @@ const { data } = await useAsyncData(route.path, () =>
       <NuxtLink class="back" to="/blog">←もどる</NuxtLink>
     </div>
     <article v-if="data">
+      {{ data.tag }}
       <h1 class="title">{{ data.title }}</h1>
       <p class="date">{{ parseDate(data.date) }}</p>
       <ContentRenderer v-if="data" :value="data" />

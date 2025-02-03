@@ -3,22 +3,18 @@ import { parseDate } from "~/utils/parseDate";
 
 const route = useRoute();
 const { data } = await useAsyncData(route.path, () =>
-  queryCollection("blog").where("tag", "IS NOT NULL").order("id", "DESC").all(),
+  queryCollection("blog")
+    .where("tag", "LIKE", `%${route.params.tag}%`)
+    .order("id", "DESC")
+    .all(),
 );
-
-const current = computed(() => {
-  if (typeof route.params.tag !== "string") return data.value;
-  return data.value?.filter((article) =>
-    article.tag.includes(route.params.tag as string),
-  );
-});
 </script>
 
 <template>
   <main>
     <TagLinks />
-    <ul v-if="current" class="list">
-      <li v-for="article in current" :key="article.path" class="list_item">
+    <ul v-if="data" class="list">
+      <li v-for="article in data" :key="article.path" class="list_item">
         <NuxtLink :to="article.path">{{ article.title }}</NuxtLink>
         <span class="date">{{ parseDate(article.date) }}</span>
         <div v-for="tag in article.tag" :key="tag" class="list_item_tag">
