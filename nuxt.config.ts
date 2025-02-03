@@ -25,6 +25,9 @@ export default defineNuxtConfig({
         },
       },
     },
+    preview: {
+      api: "https://api.nuxt.studio",
+    },
   },
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL,
