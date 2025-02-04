@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data } = await useAsyncData("header", () =>
-  queryCollectionNavigation("docs"),
+  queryCollectionNavigation("blog"),
 );
 </script>
 
