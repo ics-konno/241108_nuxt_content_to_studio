@@ -16,7 +16,7 @@ export default defineContentConfig({
       }),
     }),
     example: defineCollection({
-      source: "example/**/*.md",
+      source: { include: "example/**/*.md", prefix: "/example" },
       type: "page",
       schema: z.object({
         date: z.date(),
