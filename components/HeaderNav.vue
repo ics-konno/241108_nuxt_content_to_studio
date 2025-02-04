@@ -5,11 +5,16 @@ const { data } = await useAsyncData("header", () =>
 </script>
 
 <template>
-  <ul v-if="data">
-    <li v-for="link of data" :key="link.path">
-      <NuxtLink :to="link.path" class="link">{{ link.title }}</NuxtLink>
-    </li>
-  </ul>
+  <div>
+    <div>
+      {{ JSON.stringify(data) }}
+    </div>
+    <ul v-if="data">
+      <li v-for="link of data" :key="link.path">
+        <NuxtLink :to="link.path" class="link">{{ link.title }}</NuxtLink>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
