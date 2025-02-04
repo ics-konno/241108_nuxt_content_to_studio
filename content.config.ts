@@ -12,7 +12,7 @@ export default defineContentConfig({
       }),
     }),
     docs: defineCollection({
-      source: "**/*.md",
+      source: "**",
       type: "page",
     }),
   },
