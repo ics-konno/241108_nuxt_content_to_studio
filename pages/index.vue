@@ -2,9 +2,6 @@
 const { data } = await useAsyncData("index", () =>
   queryCollection("docs").path("/").first(),
 );
-const { data: all } = await useAsyncData("all", () =>
-  queryCollection("docs").all(),
-);
 </script>
 
 <template>
