@@ -7,7 +7,7 @@ const { data: all } = await useAsyncData("all", () =>
 );
 
 const { data: blog } = await useAsyncData("all2", () =>
-  queryCollection("blog").all(),
+  queryCollectionNavigation("blog"),
 );
 </script>
 
