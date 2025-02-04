@@ -2,7 +2,7 @@
 import { parseDate } from "~/utils/parseDate";
 const route = useRoute();
 const { data } = await useAsyncData(route.path, () =>
-  queryCollection("docs").path(route.path).first(),
+  queryCollection("blog").path(route.path).first(),
 );
 </script>
 
