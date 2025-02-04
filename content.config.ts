@@ -11,5 +11,9 @@ export default defineContentConfig({
         date: z.string(),
       }),
     }),
+    docs: defineCollection({
+      source: "**/*.md",
+      type: "page",
+    }),
   },
 });

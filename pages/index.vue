@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data } = await useAsyncData("index", () =>
-  queryCollection("blog").first(),
+  queryCollection("docs").path("/").first(),
 );
 </script>
 
