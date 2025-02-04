@@ -15,12 +15,5 @@ export default defineContentConfig({
         date: z.string(),
       }),
     }),
-    example: defineCollection({
-      source: "**/example/**/*.md",
-      type: "page",
-      schema: z.object({
-        date: z.date(),
-      }),
-    }),
   },
 });
