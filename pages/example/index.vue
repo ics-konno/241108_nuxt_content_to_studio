@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { data } = await useAsyncData("test", () =>
-  queryCollection("test").first(),
+const { data } = await useAsyncData("example", () =>
+  queryCollection("example").first(),
 );
 </script>
 
