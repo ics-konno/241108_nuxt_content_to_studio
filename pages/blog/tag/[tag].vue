@@ -3,7 +3,7 @@ import { parseDate } from "~/utils/parseDate";
 
 const route = useRoute();
 const { data } = await useAsyncData(route.path, () =>
-  queryCollection("blog")
+  queryCollection("docs")
     .where("tag", "LIKE", `%${route.params.tag}%`)
     .order("id", "DESC")
     .all(),

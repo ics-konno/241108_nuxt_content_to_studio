@@ -2,7 +2,7 @@
 import { parseDate } from "~/utils/parseDate";
 
 const { data } = await useAsyncData("blog", () =>
-  queryCollection("blog").order("id", "DESC").all(),
+  queryCollection("docs").order("id", "DESC").all(),
 );
 </script>
 

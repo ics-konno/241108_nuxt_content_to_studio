@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data } = await useAsyncData("tag", () =>
-  queryCollection("blog").where("tag", "IS NOT NULL").all(),
+  queryCollection("docs").where("tag", "IS NOT NULL").all(),
 );
 const tags = computed(() => {
   const arr = data.value

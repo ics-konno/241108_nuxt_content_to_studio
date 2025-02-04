@@ -2,7 +2,7 @@
 import { parseDate } from "~/utils/parseDate";
 const route = useRoute();
 const { data } = await useAsyncData(route.path, () =>
-  queryCollection("blog").path(route.path).first(),
+  queryCollection("docs").path(route.path).first(),
 );
 </script>
 
@@ -11,9 +11,7 @@ const { data } = await useAsyncData(route.path, () =>
     <div>
       <NuxtLink class="back" to="/blog">←もどる</NuxtLink>
     </div>
-    {{ route.path }}
     <article v-if="data">
-      {{ data.tag }}
       <h1 class="title">{{ data.title }}</h1>
       <p class="date">{{ parseDate(data.date) }}</p>
       <ContentRenderer v-if="data" :value="data" />
