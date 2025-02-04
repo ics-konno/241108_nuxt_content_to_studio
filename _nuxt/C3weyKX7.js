@@ -1,1 +1,0 @@
-import{a as o,c as n,f as s,k as a,i as c,t as r,L as p,l as _}from"./Dx5m5sHV.js";const u={class:"button"},i=o({__name:"CounterComponent",setup(l){const t=n(0);return(f,e)=>(a(),s("div",u,[c("button",{onClick:e[0]||(e[0]=()=>t.value++)},r(p(t)),1)]))}}),d=_(i,[["__scopeId","data-v-81ecc980"]]);export{d as default};
